@@ -27,7 +27,7 @@ datasource:
     datasource: test1 #数据源名称 对应数据源配置
     sourcetype: elasticsearch #数据源类型  mysql|elasticsearch|redis
     query: ERROR
-    #查询条件 获取的值转化为float64失败会默认设置为0
+    #查询条件 获取的值转化为float64失败会默认设置为0,es查询数据为最近10m内数据
     #mysql为查询语句,监控指标值为value字段需设定字段别名为”value”
     #elastic为查询表达式,查询的是对应匹配数据的行数
     #redis为key,不支持keys
