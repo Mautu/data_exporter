@@ -1,0 +1,57 @@
+version: 0.0.1
+port: 49110
+datasource:
+  mysql:
+    test1: username:password@tcp(172.0.0.1:3306)/dbname
+    test2: user:password@tcp(localhost:5555)/dbname
+  elasticsearch:
+    test1: http://127.0.0.1:9200/indexname
+  redis:
+    test1: 1password|127.0.0.1:6379
+querys:
+  - name: es
+    datasource: test1
+    sourcetype: elasticsearch
+    query: ERROR
+    constant_lables:
+      project: ttt
+      service: test
+    variable_lables:
+      - state    
+  - name: mysql
+    datasource: test1
+    sourcetype: mysql
+    query: select state,service_name as service,sum(count) as value from dddd where service_name ='alert_boce' group by state,service_name
+    constant_lables:
+      project: ec
+    variable_lables:
+      - state
+      - service
+  - name: mysql22
+    datasource: test1
+    sourcetype: mysql
+    query: select sum(count) as value from aaaa 
+    constant_lables:
+    variable_lables:
+  - name: ubs_logindata_info
+    datasource: test2
+    sourcetype: elasticsearch
+    query: ’”测试“ AND ”a“‘
+    constant_lables:
+    variable_lables:
+      - telType
+  - name: count
+    datasource: test1
+    sourcetype: redis
+    query: count
+    constant_lables:
+      project: tttt
+    variable_lables:
+  - name: count3
+    datasource: test1
+    sourcetype: redis
+    query: count3
+    constant_lables:
+      project: tttt
+    variable_lables:
+      - telType
